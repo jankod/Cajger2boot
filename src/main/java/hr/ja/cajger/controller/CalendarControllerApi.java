@@ -34,8 +34,6 @@ public class CalendarControllerApi {
             @RequestParam("end") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) @ModelAttribute LocalDateTime end
             , @RequestParam("_") String reqId) {
 
-
-
         List<EventDto> events = new ArrayList<>();
         events.add(new EventDto(2L, LocalDateTime.now().withHour(10).withMinute(0),
                 LocalDateTime.now().withHour(16).withMinute(0),
