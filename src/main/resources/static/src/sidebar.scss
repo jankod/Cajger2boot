@@ -1,0 +1,43 @@
+// Fonts
+// @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+$min-width : 300px;
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+#sidebar {
+  min-width: $min-width;
+  max-width: $min-width ;
+}
+
+#sidebar.active {
+  margin-left: -$min-width;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -$min-width;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+}
+
+/*
+ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
+*/
+// @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+#sidebar {
+  /* don't forget to add all the previously mentioned styles here too */
+  transition: all 0.3s;
+}
