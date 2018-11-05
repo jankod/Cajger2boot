@@ -1,6 +1,7 @@
 package hr.ja.cajger.service;
 
 import hr.ja.cajger.model.Calendar;
+import hr.ja.cajger.model.CalendarDto;
 import hr.ja.cajger.repository.CalendarRepositrory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,11 +4,11 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-import hr.ja.cajger.model.Event;
-import hr.ja.cajger.model.EventDto;
-import hr.ja.cajger.model.Resource;
+import hr.ja.cajger.model.*;
 import hr.ja.cajger.service.CalendarService;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,16 +39,31 @@ public class CalendarControllerApi {
                 LocalDateTime.now().withHour(16).withMinute(0),
                 "33 ", "2"));
 
-          log.debug("Got {} {} - "+reqId, start, end);
+        // log.debug("Got {} {} - "+reqId, start, end);
 
         return events;
     }
 
-    @GetMapping("/resources")
-    public List<Resource> getResources() {
 
-        return null;
+    @GetMapping("/resources")
+    public List<ResourceDto> getResources(@RequestParam("_") String reqId) {
+        List<ResourceDto> calendars = new ArrayList<>();
+        calendars.add(new ResourceDto("2", "dva"));
+        calendars.add(new ResourceDto("3", "tri"));
+        return calendars;
     }
+
+
+    @PostMapping("/resources")
+    public void saveResource(@RequestBody NewResourceDto param) {
+        log.debug("dobio " + param);
+    }
+
+    @Data
+    static class NewResourceDto {
+        String name;
+    }
+
 }
 
 
